@@ -147,7 +147,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RequestConsumer\RequestConsumer.vbproj">
-      <Project>{62C3D3EA-5778-41F6-8789-F946C087CDEB}</Project>
+      <Project>{62c3d3ea-5778-41f6-8789-f946c087cdeb}</Project>
       <Name>RequestConsumer</Name>
     </ProjectReference>
   </ItemGroup>
