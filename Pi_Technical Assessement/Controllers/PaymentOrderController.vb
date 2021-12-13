@@ -18,13 +18,6 @@ Namespace Controllers
 
         ' POST api/paymentOrder
         Public Function PostValue(<FromBody()> ByVal value As TransactionRequest) As String
-            Dim tokenvalue As String = ""
-            Dim work As New Worker
-            tokenvalue = work.FunctionAuthToken
-            tokenvalue.Trim()
-            'Dim data As String = ""
-            'data = value.OriginatorConversationId
-            'queue: rabbitmq'
             Dim Req As New PublishRequest
             Dim TranRequest As New RequestPublisher.TransactionRequestModel
 

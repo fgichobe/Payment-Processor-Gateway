@@ -55,9 +55,6 @@
     <Reference Include="RabbitMQ.Client, Version=6.0.0.0, Culture=neutral, PublicKeyToken=89e7d7c5feba84ce, processorArchitecture=MSIL">
       <HintPath>..\packages\RabbitMQ.Client.6.2.2\lib\net461\RabbitMQ.Client.dll</HintPath>
     </Reference>
-    <Reference Include="RestRequest, Version=1.1.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\RestRequest.1.2.0\lib\netstandard2.0\RestRequest.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
@@ -237,10 +234,12 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.vb" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.vb" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.vb" />
+    <Compile Include="Controllers\CallBackController.vb" />
     <Compile Include="Controllers\PaymentOrderController.vb" />
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CallBackResponse.vb" />
     <Compile Include="Models\PaymentOrderClass.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -354,7 +353,7 @@
       <Name>RequestConsumer</Name>
     </ProjectReference>
     <ProjectReference Include="..\RequestPublisher\RequestPublisher.vbproj">
-      <Project>{C8A057F0-2677-42F3-97A5-13C33FFB8F75}</Project>
+      <Project>{c8a057f0-2677-42f3-97a5-13c33ffb8f75}</Project>
       <Name>RequestPublisher</Name>
     </ProjectReference>
   </ItemGroup>
