@@ -118,6 +118,7 @@ Public Class Worker
             Dim response As IRestResponse = client.Execute(request)
             Dim jss_token = JsonConvert.DeserializeObject(Of Object)(response.Content)
             Dim tokenval = jss_token("access_token")
+            LogOrigTxn.LogIncomingTxns(tokenval)
             Return tokenval
         Catch ex As Exception
             LogOrigException.LogIncomingExceptions(ex.Message)
