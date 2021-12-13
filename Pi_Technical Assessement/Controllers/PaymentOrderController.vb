@@ -1,5 +1,6 @@
 ﻿Imports System.Net
 Imports System.Web.Http
+Imports Business_Logic
 Imports Newtonsoft.Json
 Imports Pi_Technical_Assessement.PaymentOrderClass
 Imports RequestConsumer
@@ -13,6 +14,10 @@ Namespace Controllers
         ' GET api/values
 
         Public Function GetValues() As IEnumerable(Of String)
+
+            Using context As New PaymentProcessorContext()
+
+            End Using
             Return New String() {"value1", "value2"}
         End Function
 
