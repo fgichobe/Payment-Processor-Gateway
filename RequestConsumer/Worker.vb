@@ -3,6 +3,7 @@ Imports System.Net
 Imports System.Text
 Imports System.Threading
 Imports System.Threading.Channels
+Imports LogsClass
 Imports Newtonsoft
 Imports Newtonsoft.Json
 Imports RabbitMQ.Client
@@ -18,6 +19,8 @@ Public Class Worker
     Private _uri As String = String.Empty
     Private _virtualHost As String = String.Empty
     Private _port As Integer = 15672
+    Public LogOrigTxn As New LogClass
+    Public LogOrigException As New LogExceptions
 
     Public Sub New()
 
@@ -92,7 +95,7 @@ Public Class Worker
             channel.BasicConsume(queue:=_queueName, autoAck:=False, consumer:=consumer)
             Await Task.CompletedTask
         Catch ex As Exception
-
+            LogOrigException.LogIncomingExceptions(ex.Message)
         End Try
 
     End Function
@@ -117,24 +120,30 @@ Public Class Worker
             Dim tokenval = jss_token("access_token")
             Return tokenval
         Catch ex As Exception
-
+            LogOrigException.LogIncomingExceptions(ex.Message)
         End Try
 
     End Function
 
     Public Function FunctionSendRequest(ByVal txn As String, ByVal token As String) As ResponseMessage
-        Dim client = New RestClient("https://sandbox.api.zamupay.com/v1/payment-order/new-order")
-        client.Timeout = -1
-        ServicePointManager.Expect100Continue = True
-        ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
-        Dim request = New RestRequest(Method.POST)
-        request.AddParameter("AUTHORIZATION Bearer", token)
-        request.AddParameter("ContentType", "application/json")
+        Try
+            LogOrigTxn.LogIncomingTxns(txn)
 
-        request.AddParameter(ParameterType.RequestBody, txn)
-        Dim response As IRestResponse = client.Execute(request)
-        'Dim jss_token = JsonConvert.DeserializeObject(Of Object)(response.Content)
-        Dim data_Response = JsonConvert.DeserializeObject(Of ResponseMessage)(response.Content)
-        Return data_Response
+            Dim client = New RestClient("https://sandbox.api.zamupay.com/v1/payment-order/new-order")
+            client.Timeout = -1
+            ServicePointManager.Expect100Continue = True
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
+            Dim request = New RestRequest(Method.POST)
+            request.AddParameter("AUTHORIZATION Bearer", token)
+            request.AddParameter("ContentType", "application/json")
+
+            request.AddParameter(ParameterType.RequestBody, txn)
+            Dim response As IRestResponse = client.Execute(request)
+            'Dim jss_token = JsonConvert.DeserializeObject(Of Object)(response.Content)
+            Dim data_Response = JsonConvert.DeserializeObject(Of ResponseMessage)(response.Content)
+            Return data_Response
+        Catch ex As Exception
+            LogOrigException.LogIncomingExceptions(ex.Message)
+        End Try
     End Function
 End Class

@@ -15,6 +15,10 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Win_Processor", "Win_Proces
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "RequestConsumer", "RequestConsumer\RequestConsumer.vbproj", "{62C3D3EA-5778-41F6-8789-F946C087CDEB}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Logging", "Logging", "{995A3934-83DD-40B1-B3A3-EDFC8A7D7D34}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "LogsClass", "LogsClass\LogsClass.vbproj", "{8CA53121-2557-4BF9-B888-BC26E1E82FB6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +41,10 @@ Global
 		{62C3D3EA-5778-41F6-8789-F946C087CDEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62C3D3EA-5778-41F6-8789-F946C087CDEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62C3D3EA-5778-41F6-8789-F946C087CDEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CA53121-2557-4BF9-B888-BC26E1E82FB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CA53121-2557-4BF9-B888-BC26E1E82FB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CA53121-2557-4BF9-B888-BC26E1E82FB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CA53121-2557-4BF9-B888-BC26E1E82FB6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -45,6 +53,7 @@ Global
 		{C8A057F0-2677-42F3-97A5-13C33FFB8F75} = {D07235C5-9F2D-4CBE-B3E4-E191420E9FF3}
 		{EA0AEE99-FB6B-41EB-8C6C-B1D8B746CB8F} = {9D5DB646-7C8F-4462-ACB6-15CB73C61E6C}
 		{62C3D3EA-5778-41F6-8789-F946C087CDEB} = {D07235C5-9F2D-4CBE-B3E4-E191420E9FF3}
+		{8CA53121-2557-4BF9-B888-BC26E1E82FB6} = {995A3934-83DD-40B1-B3A3-EDFC8A7D7D34}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8282190A-E981-497F-90A8-6572DFE09291}
